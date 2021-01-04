@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Image HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="703" Source="sfondocampo.png" Margin="0,0,0,-11"/>
+        <Image x:Name="LebronJames_img" HorizontalAlignment="Left" Height="82" Margin="10,10,0,0" VerticalAlignment="Top" Width="96" Source="LebronJames.png"/>
+        <Image x:Name="Kobe_img" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="72" Margin="0,146,0,0" Source="kobe.png"/>
+        <Image x:Name="MichaelJordan_img" HorizontalAlignment="Left" Height="95" Margin="0,280,0,0" VerticalAlignment="Top" Width="72" Source="michaeljordan.png"/>
+        <Label x:Name="lbl_classificafinale" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Height="139" Width="84" Margin="709,10,-1,0" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.322"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="btn_inizio" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Height="92" Margin="708,317,0,0"/>
+
+
     </Grid>
 </Window>

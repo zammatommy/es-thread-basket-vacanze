@@ -52,22 +52,24 @@ namespace es_thread_basket_vacanze
             MichaelJordan_img.Source = bitmap3;
             MichaelJordan_img.Margin = new Thickness(incremento, altezza + 240, 0, 0);
 
+            tempo = new List<Tuple<string, double>>();
             tempo.Add(new Tuple<string, double>("thread 1", 0));
             tempo.Add(new Tuple<string, double>("thread 2", 0));
             tempo.Add(new Tuple<string, double>("thread 3", 0));
 
-            Thread t1 = new Thread(new ThreadStart(Metodo1));
-            Thread t2 = new Thread(new ThreadStart(Metodo2));
-            Thread t3 = new Thread(new ThreadStart(Metodo3));
-            Thread t4 = new Thread(new ThreadStart(Metodo4));
-            Cronometro1 = new Stopwatch();
-            Cronometro2 = new Stopwatch();
-            Cronometro3 = new Stopwatch();
-
+            
 
 
 
         }
+        private double inizio;
+        private double fine;
+        private double altezza;
+
+        Thread t1;
+        Thread t2;
+        Thread t3;
+        Thread t4;
 
 
 
@@ -94,6 +96,28 @@ namespace es_thread_basket_vacanze
             Cronometro3.Start();
             Sposta3();
         }
+        private void Metodo4()
+        {
+            bool b = true;
+            while (b)
+            {
+                if (t1.IsAlive == false)
+                {
+                    lbl_classificafinale.Content = lbl_classificafinale.Content + tempo[0].Item1 + ": " + tempo[0].Item2 + "\n";
+                }
+
+                if (t2.IsAlive == false)
+                {
+                    lbl_classificafinale.Content = lbl_classificafinale.Content + tempo[1].Item1 + ": " + tempo[1].Item2 + "\n";
+                }
+
+                if (t3.IsAlive == false)
+                {
+                   lbl_classificafinale.Content = lbl_classificafinale.Content + tempo[2].Item1 + ": " + tempo[2].Item2 + "\n";
+                }
+            }
+        }
+
 
         private void Sposta1()
         {
@@ -107,8 +131,10 @@ namespace es_thread_basket_vacanze
                     LebronJames_img.Margin = new Thickness(LebronJames_img.Margin.Left + tmp, LebronJames_img.Margin.Top, LebronJames_img.Margin.Right, LebronJames_img.Margin.Bottom);
 
                 }));
-                Thread.Sleep(400);
+                Thread.Sleep(40);
             }
+            Cronometro1.Stop();
+            tempo[0] = new Tuple<string, double>(tempo[0].Item1, Cronometro1.Elapsed.TotalSeconds);
 
 
 
@@ -126,6 +152,10 @@ namespace es_thread_basket_vacanze
                 }));
                 Thread.Sleep(400);
             }
+
+            Cronometro2.Stop();
+            tempo[1] = new Tuple<string, double>(tempo[0].Item1, Cronometro2.Elapsed.TotalSeconds);
+
         }
 
         private void Sposta3()
@@ -140,14 +170,38 @@ namespace es_thread_basket_vacanze
                 }));
                 Thread.Sleep(400);
             }
+
+            Cronometro3.Stop();
+            tempo[1] = new Tuple<string, double>(tempo[0].Item1, Cronometro3.Elapsed.TotalSeconds);
+        }
+        private void btn_init_Click(object sender, RoutedEventArgs e)
+        {
+            Thread t = new Thread(new ThreadStart(Start));
+            t.Start();
         }
 
+        private void Start()
+        {
+            t1 = new Thread(new ThreadStart(Metodo1));
+            t2 = new Thread(new ThreadStart(Metodo2));
+            t3 = new Thread(new ThreadStart(Metodo3));
+            t4 = new Thread(new ThreadStart(Metodo4));
 
+            Cronometro1 = new Stopwatch();
+            Cronometro2 = new Stopwatch();
+            Cronometro3 = new Stopwatch();
 
+            t1.Start();
+            t2.Start();
+            t3.Start();
+            t4.Start();
+        }
     }
 }
+
+
+
 
         
        
-    }
-}
+
