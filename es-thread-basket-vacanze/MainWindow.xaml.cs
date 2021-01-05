@@ -37,9 +37,9 @@ namespace es_thread_basket_vacanze
         public MainWindow()
         {
             InitializeComponent();
-            inizio = 10;
-            fine = 750;
-            altezza = 30;
+            inizio = 12;
+            fine = 720;
+            altezza = 20;
 
 
             BitmapImage bitmap1 = new BitmapImage();
@@ -47,7 +47,7 @@ namespace es_thread_basket_vacanze
             bitmap1.UriSource = new Uri("LebronJames.png", UriKind.RelativeOrAbsolute);
             bitmap1.EndInit();
             LebronJames_img.Source = bitmap1;
-            LebronJames_img.Margin = new Thickness(inizio, altezza, 0, 0);
+            LebronJames_img.Margin = new Thickness(0, 30,  0, 0);
 
 
             BitmapImage bitmap2 = new BitmapImage();
@@ -55,14 +55,14 @@ namespace es_thread_basket_vacanze
             bitmap2.UriSource = new Uri("Kobe.png", UriKind.RelativeOrAbsolute);
             bitmap2.EndInit();
             Kobe_img.Source = bitmap2;
-            Kobe_img.Margin = new Thickness(inizio, altezza + 120, 0, 0);
+            Kobe_img.Margin = new Thickness(0, 146,  0, 0);
 
             BitmapImage bitmap3 = new BitmapImage();
             bitmap3.BeginInit();
-            bitmap3.UriSource = new Uri("img3.png", UriKind.RelativeOrAbsolute);
+            bitmap3.UriSource = new Uri("MichaelJordan.png", UriKind.RelativeOrAbsolute);
             bitmap3.EndInit();
             MichaelJordan_img.Source = bitmap3;
-            MichaelJordan_img.Margin = new Thickness(inizio, altezza + 240, 0, 0);
+            MichaelJordan_img.Margin = new Thickness(0, 280, 0, 0);
 
             tempo = new List<Tuple<string, double>>();
             tempo.Add(new Tuple<string, double>("thread 1", 0));
@@ -81,14 +81,55 @@ namespace es_thread_basket_vacanze
 
 
         }
-        
+        private void Metodo4()
+        {
+            bool bl = true;
+            int d= 0, e= 0, f = 0;
+            while (bl)
+            {
+
+
+                if (t1.IsAlive == false && d == 0)
+                {
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        Cronometro1.Stop();
+                        tempo[0] = new Tuple<string, double>(tempo[0].Item1, Cronometro1.Elapsed.TotalSeconds);
+                        lbl_classificafinale.Content = lbl_classificafinale.Content + tempo[0].Item1 + ": " + tempo[0].Item2 + "\n";
+                    }));
+                    d++;
+                }
+
+                if (t2.IsAlive == false && e == 0)
+                {
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        Cronometro2.Stop();
+                        tempo[1] = new Tuple<string, double>(tempo[1].Item1, Cronometro2.Elapsed.TotalSeconds);
+                        lbl_classificafinale.Content = lbl_classificafinale.Content + tempo[1].Item1 + ": " + tempo[1].Item2 + "\n";
+                    }));
+                    e++;
+                }
+
+                if (t3.IsAlive == false && f == 0)
+                {
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        Cronometro3.Stop();
+                        tempo[2] = new Tuple<string, double>(tempo[2].Item1, Cronometro3.Elapsed.TotalSeconds);
+                        lbl_classificafinale.Content = lbl_classificafinale.Content + tempo[2].Item1 + ": " + tempo[2].Item2 + "\n";
+                    }));
+                    f++;
+                }
+
+                if (e + d + f == 3)
+                    bl = false;
+            }
+        }
 
 
 
-        private Stopwatch Cronometro1;
-        private Stopwatch Cronometro2;
-        private Stopwatch Cronometro3;
-        private List<Tuple<string, double>> tempo;
+
 
 
         private void Metodo1()
@@ -115,7 +156,7 @@ namespace es_thread_basket_vacanze
         {
 
             Random rnd = new Random();
-            double ml = 10;
+            double ml = 11;
 
 
             while (ml < fine)
@@ -123,7 +164,7 @@ namespace es_thread_basket_vacanze
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     ml = LebronJames_img.Margin.Left;
-                    int tmp = rnd.Next(10, 51);
+                    int tmp = rnd.Next(11, 50);
                     LebronJames_img.Margin = new Thickness(ml + tmp, LebronJames_img.Margin.Top, 0, 0);
 
                 }));
