@@ -11,7 +11,7 @@
         <Image x:Name="LebronJames_img" HorizontalAlignment="Left" Height="82" Margin="10,10,0,0" VerticalAlignment="Top" Width="96" Source="LebronJames.png"/>
         <Image x:Name="Kobe_img" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="72" Margin="0,146,0,0" Source="kobe.png"/>
         <Image x:Name="MichaelJordan_img" HorizontalAlignment="Left" Height="95" Margin="0,280,0,0" VerticalAlignment="Top" Width="72" Source="michaeljordan.png"/>
-        <Label x:Name="lbl_classificafinale" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Height="139" Width="84" Margin="709,10,-1,0" RenderTransformOrigin="0.5,0.5">
+        <Label x:Name="lbl_classificafinale" Content="classificafinale&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="139" Width="84" Margin="709,10,-1,0" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -21,7 +21,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button x:Name="btn_inizio" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Height="92" Margin="708,317,0,0"/>
+        <Button x:Name="btn_inizio" Content="Inizio " HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Height="92" Margin="708,317,0,0"/>
 
 
     </Grid>
