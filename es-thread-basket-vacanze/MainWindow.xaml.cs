@@ -38,8 +38,8 @@ namespace es_thread_basket_vacanze
         {
             InitializeComponent();
             inizio = 12;
-            fine = 720;
-            altezza = 20;
+            fine = 580;
+            altezza = 10;
 
 
             BitmapImage bitmap1 = new BitmapImage();
@@ -47,7 +47,7 @@ namespace es_thread_basket_vacanze
             bitmap1.UriSource = new Uri("LebronJames.png", UriKind.RelativeOrAbsolute);
             bitmap1.EndInit();
             LebronJames_img.Source = bitmap1;
-            LebronJames_img.Margin = new Thickness(0, 30,  0, 0);
+            LebronJames_img.Margin = new Thickness(0, 30, 0, 0);
 
 
             BitmapImage bitmap2 = new BitmapImage();
@@ -55,7 +55,7 @@ namespace es_thread_basket_vacanze
             bitmap2.UriSource = new Uri("Kobe.png", UriKind.RelativeOrAbsolute);
             bitmap2.EndInit();
             Kobe_img.Source = bitmap2;
-            Kobe_img.Margin = new Thickness(0, 146,  0, 0);
+            Kobe_img.Margin = new Thickness(0, 146, 0, 0);
 
             BitmapImage bitmap3 = new BitmapImage();
             bitmap3.BeginInit();
@@ -211,11 +211,13 @@ namespace es_thread_basket_vacanze
 
             }
         }
-        private void btn_inizio_Click(object sender, RoutedEventArgs e)
+
+        private void btn_inizio_Click_1(object sender, RoutedEventArgs e)
         {
             Thread t = new Thread(new ThreadStart(Start));
             t.Start();
         }
+
 
         private void Start()
         {
@@ -234,6 +236,8 @@ namespace es_thread_basket_vacanze
 
 
         }
+
+       
     }
 }
 

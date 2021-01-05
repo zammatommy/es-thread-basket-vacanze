@@ -21,7 +21,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button x:Name="btn_inizio" Content="Inizio " HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Height="92" Margin="708,317,0,0"/>
+        <Button x:Name="btn_inizio" Content="Inizio " HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Height="92" Margin="708,317,0,0" Click="btn_inizio_Click_1"/>
 
 
     </Grid>
