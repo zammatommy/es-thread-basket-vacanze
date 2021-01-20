@@ -21,6 +21,7 @@ namespace es_thread_basket_vacanze
     /// Logica di interazione per MainWindow.xaml
     /// </summary>
     /// oooooooooo
+    /// 666
     public partial class MainWindow : Window
     {
         private double inizio;
