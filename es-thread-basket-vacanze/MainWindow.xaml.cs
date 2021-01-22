@@ -28,6 +28,7 @@ namespace es_thread_basket_vacanze
     /// hhhh
     /// 999
     /// fgg
+    /// hhhhhhhhhhhhhh
     public partial class MainWindow : Window
     {
         private double inizio;
